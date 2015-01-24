@@ -1,3 +1,6 @@
+package browse;
+import browse.util.Konsole;
+
 public class Browser {
 	W3Server			meinServer;
 	TextFenster			oberfl;

@@ -1,3 +1,4 @@
+package browse.util;
 
 public class Konsole {
 	

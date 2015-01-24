@@ -1,3 +1,4 @@
+package browse;
 
 public class W3SeitenTest {
 

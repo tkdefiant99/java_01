@@ -1,3 +1,6 @@
+package browse.util;
+import browse.W3Seite;
+
 
 public class ListElem {
 	private String adr;

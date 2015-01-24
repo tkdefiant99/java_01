@@ -2,7 +2,7 @@ import java.util.NoSuchElementException;
 
 
 public class LinkedList<ET> {
-	Entry<ET> header = new Entry<ET>(null, null, null);
+	private Entry<ET> header = new Entry<ET>(null, null, null);
 	int size = 0;
 	
 	// Konstruktor für eine leere LinkedList
@@ -38,5 +38,17 @@ public class LinkedList<ET> {
 	//Anzahl Elemente in der Liste ausgeben
 	int size() {
 		return size;
+	}
+	
+	private static class Entry<ET> {
+		private ET element;
+		private Entry<ET> next;
+		private Entry<ET> previous;
+		
+		Entry(ET element, Entry<ET> next, Entry<ET> previous) {
+			this.element = element;
+			this.next = next;
+			this.previous = previous;
+		}
 	}
 }

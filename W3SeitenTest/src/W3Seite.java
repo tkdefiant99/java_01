@@ -1,19 +1,18 @@
 
 public class W3Seite {
-	String titel;
-	String inhalt;
+	private String seite;
 	
 	public W3Seite(String titel, String inhalt) {
-		super();
-		this.titel = titel;
-		this.inhalt = inhalt;
+		seite = "<TITLE>" + titel + "</TITLE>" + inhalt;
 	}
 
 	public String getTitel() {
-		return this.titel;
+		int trennIndex = seite.indexOf("</TITLE>");
+		return new String(seite.toCharArray(), 7, trennIndex - 7);
 	}
 
 	public String getInhalt() {
-		return this.inhalt;
+		int trennIndex = seite.indexOf("</TITLE>");
+		return new String(seite.toCharArray(), trennIndex + 8, seite.length() - (trennIndex +8));
 	}	
 }

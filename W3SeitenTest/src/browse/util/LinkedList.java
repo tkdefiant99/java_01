@@ -1,26 +1,26 @@
-package browse;
+package browse.util;
 import java.util.NoSuchElementException;
 
-import browse.util.ListElem;
+import browse.ListElem;
 
 public class LinkedList {
 	private Entry header = new Entry(null, null, null);
-	int size = 0;
+	private int size = 0;
 	
 	// Konstruktor für eine leere LinkedList
-	LinkedList() {
+	public LinkedList() {
 		header.next = header;
 		header.previous = header;
 	}
 	
 	//Letztes Element der Liste ausgeben
-	ListElem getLast() {
+	public ListElem getLast() {
 		if(size == 0) throw new NoSuchElementException();
 		return header.previous.element;
 	}
 	
 	//Letztes Element der Liste ausgeben und entfernen
-	ListElem removeLast() {
+	public ListElem removeLast() {
 		Entry lastentry = header.previous;
 		if(lastentry == header) throw new NoSuchElementException();
 		lastentry.previous.next = lastentry.next;
@@ -30,7 +30,7 @@ public class LinkedList {
 	}
 	
 	//Neues Element ans Ende der Liste anhängen
-	void addLast (ListElem e) {
+	public void addLast (ListElem e) {
 		Entry newEntry = new Entry(e, header, header.previous);
 		header.previous.next = newEntry;
 		header.previous = newEntry;
@@ -38,7 +38,7 @@ public class LinkedList {
 	}
 	
 	//Anzahl Elemente in der Liste ausgeben
-	int size() {
+	public int size() {
 		return size;
 	}
 	
@@ -54,15 +54,15 @@ public class LinkedList {
 		}
 	}
 	
-	class ListIterator {
+	public class ListIterator {
 		private int nextIndex = 0;
 		private Entry next = header.next;
 		
-		boolean hasNext() {
+		public boolean hasNext() {
 			return nextIndex != size;
 		}
 		
-		ListElem next() {
+		public ListElem next() {
 			if(nextIndex == size) throw new NoSuchElementException();
 			ListElem elem = next.element;
 			next = next.next;
@@ -71,7 +71,7 @@ public class LinkedList {
 		}
 	}
 	
-	ListIterator listInterator() {
+	public ListIterator listInterator() {
 		return new ListIterator();
 	}
 }

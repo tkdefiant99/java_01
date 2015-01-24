@@ -1,5 +1,4 @@
-package browse.util;
-import browse.W3Seite;
+package browse;
 
 
 public class ListElem {
